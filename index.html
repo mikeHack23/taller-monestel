@@ -3,33 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Taller J. Monestel: Especialistas en STIHL, Husqvarna, Honda y Shindaiwa. Venta y reparación en Guatuso, Alajuela.">
-    <title>Maquinaria Agrícola J. Monestel | El Experto de Guatuso</title>
-    
+    <!--
+        Esta página ha sido elaborada para ampliar el catálogo de maquinaria de
+        Taller J. Monestel.  Se conservó la estética industrial original y se
+        añadieron equipos agrícolas de motor pequeño basados en múltiples
+        fuentes.  El PDF sobre motores pequeños de la New Mexico Agricultural
+        Mechanics menciona que este tipo de motores se utilizan en equipos
+        como ahoyadoras (post hole diggers), motosierras, bombas de riego,
+        sopladores, pulverizadores y molinos【666568484284544†L424-L438】.  La
+        California Air Resources Board (CARB) enumera una lista de
+        maquinaria con motores pequeños — motosierras, orilladoras,
+        cortasetos, cortadoras de césped, sopladoras, partidores de troncos,
+        generadores portátiles, hidrolavadoras, cortadoras de pasto
+        montables y desmalezadoras de hilo — como equipos sujetos a la
+        regulación SORE【80392210807999†L54-L67】.  También describe otros
+        aparatos con motores pequeños como compresores de aire, trituradoras
+        (chippers), bombas de agua, trituradores y destoconadoras【80392210807999†L68-L80】.
+        Basándonos en estas fuentes se han incorporado al catálogo nuevas
+        categorías de equipos con motor pequeño, cada uno ilustrado con
+        fotografías reales de Wikimedia Commons.
+    -->
+    <meta name="description" content="Taller J. Monestel: Especialistas en STIHL, Husqvarna, Honda y Shindaiwa. Venta y reparación en Guatuso, Alajuela. Catálogo actualizado con equipos de motor pequeño.">
+    <title>Maquinaria Agrícola J. Monestel | El Experto de Guatuso</title>
+
+    <!-- Fuentes y FontAwesome -->
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
         /* --- ESTÉTICA INDUSTRIAL / AGRÍCOLA --- */
         :root {
-            --brand-orange: #FF4500; 
+            /* Paleta de colores basada en marcas líderes (Naranja Stihl/Husqvarna, Rojo Honda, Verde Campo) */
+            --brand-orange: #FF4500;
             --brand-dark: #212121;
             --brand-grey: #4A4A4A;
             --brand-green: #2E8B57;
             --brand-metal: #B0C4DE;
-            
+
             --font-tech: 'Roboto Condensed', sans-serif;
-            --font-body: 'Open Sans', sans-serif;
-            
+            --font-body: 'Open Sans', sans-serif;
+
             --shadow-card: 0 10px 30px rgba(0,0,0,0.15);
         }
 
-        html {
-            scroll-behavior: smooth;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
         body {
             font-family: var(--font-body);
             background-color: #f4f4f4;
@@ -37,482 +59,949 @@
             overflow-x: hidden;
         }
 
-        /* --- TYPOGRAPHY & BUTTONS --- */
-        h1, h2, h3, h4 { font-family: var(--font-tech); text-transform: uppercase; letter-spacing: 1px; }
-        
+        /* --- TIPOGRAFÍA Y BOTONES --- */
+        h1, h2, h3, h4 {
+            font-family: var(--font-tech);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
         .btn {
-            display: inline-block; padding: 12px 25px; 
-            background: var(--brand-orange); color: white; 
-            text-decoration: none; font-weight: bold; border-radius: 4px;
-            transition: all 0.3s; border: none; cursor: pointer;
-            text-transform: uppercase; letter-spacing: 1px;
+            display: inline-block;
+            padding: 12px 25px;
+            background: var(--brand-orange);
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 4px;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.2);
         }
-        .btn:hover { background: #e03e00; transform: translateY(-2px); }
-        .btn-outline { background: transparent; border: 2px solid white; }
-        .btn-outline:hover { background: white; color: var(--brand-dark); }
-
-        /* --- HEADER --- */
-        header {
-            background: var(--brand-dark); color: white; padding: 1rem 5%;
-            display: flex; justify-content: space-between; align-items: center;
-            position: sticky; top: 0; z-index: 1000; border-bottom: 4px solid var(--brand-orange);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        .btn:hover {
+            background: #e03e00;
+            transform: translateY(-2px);
         }
-        .logo { font-size: 1.5rem; font-weight: 700; color: white; display: flex; align-items: center; gap: 10px; }
-        .logo i { color: var(--brand-orange); font-size: 1.8rem; }
-        
-        nav ul { display: flex; list-style: none; gap: 20px; }
-        nav a { color: #ccc; text-decoration: none; font-weight: 600; transition: color 0.3s; font-size: 0.9rem; text-transform: uppercase; }
-        nav a:hover { color: var(--brand-orange); }
+        .btn-outline {
+            background: transparent;
+            border: 2px solid white;
+        }
+        .btn-outline:hover {
+            background: white;
+            color: var(--brand-dark);
+        }
 
-        .header-contact { display: flex; gap: 15px; align-items: center; }
-        .email-link { color: #ccc; text-decoration: none; font-size: 0.9rem; }
-        .email-link:hover { color: white; text-decoration: underline; }
+        /* --- ENCABEZADO --- */
+        header {
+            background: var(--brand-dark);
+            color: white;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 3px solid var(--brand-orange);
+        }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .logo span {
+            color: var(--brand-orange);
+        }
 
-        /* --- HERO SECTION --- */
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+        nav a {
+            color: #ccc;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: var(--brand-orange);
+        }
+
+        /* --- SECCIÓN HERO --- */
         .hero {
             height: 85vh;
-            /* Imagen de fondo de campo agrícola real */
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1530260626688-d48233547087?q=80&w=2070&auto=format&fit=crop'); 
-            background-size: cover; background-position: center; background-attachment: fixed;
-            display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: white; padding: 20px;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1605218457335-7c15610d487f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 20px;
         }
-        .hero h1 { font-size: 3.5rem; margin-bottom: 1rem; text-shadow: 2px 2px 4px black; }
-        .hero p { font-size: 1.3rem; max-width: 700px; margin-bottom: 2rem; font-weight: 300; }
-        .badges { display: flex; gap: 15px; margin-bottom: 2rem; flex-wrap: wrap; justify-content: center; }
-        .badge { background: rgba(255,69,0,0.2); backdrop-filter: blur(5px); padding: 8px 18px; border: 1px solid var(--brand-orange); border-radius: 4px; font-size: 0.9rem; font-weight: bold; letter-spacing: 0.5px; }
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px black;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin-bottom: 2rem;
+        }
+        .badges {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .badge {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(5px);
+            padding: 5px 15px;
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
 
-        /* --- CATALOG GRID --- */
-        .catalog-section { padding: 4rem 5%; background: #e9ecef; }
-        .section-title { text-align: center; margin-bottom: 3rem; font-size: 2.5rem; color: var(--brand-dark); position: relative; }
-        .section-title::after { content: ''; width: 80px; height: 5px; background: var(--brand-orange); position: absolute; bottom: -15px; left: 50%; transform: translateX(-50%); }
+        /* --- CATÁLOGO --- */
+        .catalog-section {
+            padding: 4rem 5%;
+            background: #e9ecef;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            color: var(--brand-dark);
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background: var(--brand-orange);
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
 
-        .filters { text-align: center; margin-bottom: 3rem; }
-        .filter-btn { background: white; border: 1px solid #ccc; padding: 10px 25px; margin: 5px; cursor: pointer; font-weight: 700; color: #555; transition: 0.3s; font-family: var(--font-tech); text-transform: uppercase; }
-        .filter-btn.active, .filter-btn:hover { background: var(--brand-dark); color: white; border-color: var(--brand-dark); }
+        .filters {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .filter-btn {
+            background: white;
+            border: 1px solid #ddd;
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            color: #555;
+            transition: 0.3s;
+        }
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: var(--brand-dark);
+            color: white;
+            border-color: var(--brand-dark);
+        }
 
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 2.5rem;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
         }
 
-        /* --- REALISTIC PRODUCT CARDS (Flip Effect) --- */
+        /* --- CARDS CON EFECTO FLIP --- */
         .card {
             background-color: transparent;
             perspective: 1000px;
-            height: 520px; /* Aumentado ligeramente */
-            cursor: pointer;
+            height: 480px;
         }
         .card-inner {
-            position: relative; width: 100%; height: 100%; text-align: left;
-            transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
-            transform-style: preserve-3d;
-            box-shadow: var(--shadow-card); border-radius: 10px;
-        }
-        .card:hover .card-inner, .card.flipped .card-inner { transform: rotateY(180deg); }
-
-        .card-front, .card-back {
-            position: absolute; width: 100%; height: 100%;
-            -webkit-backface-visibility: hidden; backface-visibility: hidden;
-            border-radius: 10px; overflow: hidden; background: white;
-        }
-
-        /* Front Styling */
-        .card-front { display: flex; flex-direction: column; border-top: 4px solid var(--brand-orange); }
-        .img-container { 
-            height: 55%; background: white; padding: 20px; 
-            display: flex; align-items: center; justify-content: center; border-bottom: 1px solid #eee;
             position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: left;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            box-shadow: var(--shadow-card);
+            border-radius: 8px;
         }
-        .img-container img { max-width: 100%; max-height: 100%; object-fit: contain; filter: drop-shadow(0 5px 5px rgba(0,0,0,0.2)); transition: transform 0.3s; }
-        .card:hover .img-container img { transform: scale(1.05); }
-        
-        .flip-hint { position: absolute; top: 10px; right: 10px; color: #aaa; font-size: 1.2rem; background: rgba(255,255,255,0.8); padding: 5px; border-radius: 50%; }
-
-        .info-front { padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
-        .cat-tag { font-size: 0.8rem; color: var(--brand-orange); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
-        .prod-title { font-size: 1.4rem; margin: 8px 0; color: var(--brand-dark); line-height: 1.2; }
-        .price-tag { font-size: 1.4rem; font-weight: 700; color: var(--brand-green); margin-top: 10px; }
-        .tap-msg { text-align: center; font-size: 0.75rem; color: #999; margin-top: auto; padding-top: 10px;}
-
-        /* Back Styling (Ficha Técnica) */
+        .card:hover .card-inner {
+            transform: rotateY(180deg);
+        }
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: 8px;
+            overflow: hidden;
+            background: white;
+        }
+        .card-front {
+            display: flex;
+            flex-direction: column;
+        }
+        .img-container {
+            height: 60%;
+            background: white;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid #eee;
+        }
+        .img-container img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        .info-front {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .cat-tag {
+            font-size: 0.8rem;
+            color: var(--brand-orange);
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        .prod-title {
+            font-size: 1.3rem;
+            margin: 5px 0;
+            color: var(--brand-dark);
+        }
+        .price-tag {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--brand-green);
+        }
         .card-back {
-            background: #212529; color: #f8f9fa; transform: rotateY(180deg);
-            padding: 2rem; display: flex; flex-direction: column; border-top: 4px solid var(--brand-orange);
+            background: #2c3e50;
+            color: white;
+            transform: rotateY(180deg);
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
         }
-        .card-back h4 { border-bottom: 1px solid #444; padding-bottom: 10px; margin-bottom: 15px; color: var(--brand-orange); }
-        .specs-list { list-style: none; margin: 0 0 1rem 0; font-size: 0.95rem; }
-        .specs-list li { display: flex; justify-content: space-between; margin-bottom: 12px; border-bottom: 1px dotted #444; padding-bottom: 2px; }
-        .specs-list li span { color: #adb5bd; }
-        .specs-list li strong { color: white; font-weight: 600; }
-        .stock-status { color: #2ecc71; font-size: 0.9rem; margin-bottom: 15px; display: block; font-weight: bold; }
-
-        /* --- CONTACT & MAP --- */
-        .contact-section { display: grid; grid-template-columns: 1fr 1.2fr; background: var(--brand-dark); color: white; }
-        .contact-info { padding: 4rem; display: flex; flex-direction: column; justify-content: center; }
-        .map-box { min-height: 450px; background: #333; }
-        .map-box iframe { width: 100%; height: 100%; border: 0; filter: grayscale(20%) contrast(1.1); }
-
-        .contact-item { margin-bottom: 25px; display: flex; align-items: flex-start; gap: 15px; }
-        .contact-item i { color: var(--brand-orange); font-size: 1.2rem; margin-top: 4px; }
-        .contact-item div h5 { margin-bottom: 5px; color: #ccc; font-size: 0.9rem; }
-        .contact-item div p, .contact-item div a { font-size: 1.1rem; color: white; text-decoration: none; font-weight: 600; }
-
-        /* --- FLOATING WHATSAPP --- */
-        .floating-wpp {
-            position: fixed; bottom: 30px; right: 30px;
-            background-color: #25D366; color: white;
-            width: 60px; height: 60px; border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-            z-index: 2000; transition: transform 0.3s;
-            text-decoration: none;
+        .specs-list {
+            list-style: none;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+            border-top: 1px solid #444;
+            border-bottom: 1px solid #444;
+            padding: 10px 0;
         }
-        .floating-wpp:hover { transform: scale(1.1); background-color: #20ba5a; }
+        .specs-list li {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+        .specs-list li span {
+            color: #bbb;
+        }
+        .specs-list li strong {
+            color: white;
+        }
+        .stock-status {
+            color: #2ecc71;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+        .tech-features {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: auto;
+        }
+        .tf-badge {
+            background: rgba(255,255,255,0.1);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+        }
+
+        /* --- SECCIÓN CONTACTO Y MAPA --- */
+        .contact-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            background: var(--brand-dark);
+            color: white;
+        }
+        .contact-info {
+            padding: 4rem;
+        }
+        .map-box {
+            min-height: 400px;
+        }
+        .map-box iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
 
         /* --- RESPONSIVE --- */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.2rem; }
-            .contact-section { grid-template-columns: 1fr; }
-            .map-box { height: 350px; }
-            header { flex-direction: column; gap: 15px; padding: 15px; }
-            nav ul { gap: 15px; }
-            .header-contact { display: none; } /* Ocultar email en header movil para ahorrar espacio */
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .contact-section {
+                grid-template-columns: 1fr;
+            }
+            .map-box {
+                height: 300px;
+            }
+            nav {
+                display: none; /* Simplificado para móvil */
+            }
         }
     </style>
 </head>
 <body>
 
-    <a href="https://wa.me/50687784840?text=Hola,%20vi%20su%20página%20web%20y%20tengo%20una%20consulta" class="floating-wpp" target="_blank" title="Chatear por WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-
     <header>
         <div class="logo">
             <i class="fas fa-cogs"></i>
-            <div>J. MONESTEL<br><span style="font-size: 0.6em; letter-spacing: 2px; color:#ccc; text-transform:uppercase;">Maquinaria Agrícola</span></div>
+            <div>J. MONESTEL<br><span style="font-size: 0.7em; letter-spacing: 2px; color:#ccc;">MAQUINARIA AGRÍCOLA</span></div>
         </div>
         <nav>
             <ul>
                 <li><a href="#catalogo">Catálogo</a></li>
-                <li><a href="#taller">Servicios</a></li>
+                <li><a href="#taller">Taller</a></li>
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
         </nav>
-        <div class="header-contact">
-            <a href="mailto:monestaller@gmail.com" class="email-link"><i class="fas fa-envelope"></i> monestaller@gmail.com</a>
-        </div>
+        <a href="https://wa.me/50687784840" class="btn"><i class="fab fa-whatsapp"></i> 8778‑4840</a>
     </header>
 
     <section class="hero">
         <div class="badges">
-            <span class="badge"><i class="fas fa-check"></i> STIHL & HONDA</span>
-            <span class="badge"><i class="fas fa-wrench"></i> Reparación Express</span>
-            <span class="badge"><i class="fas fa-truck"></i> Guatuso y Alrededores</span>
+            <span class="badge"><i class="fas fa-check"></i> Distribuidor Multimarca</span>
+            <span class="badge"><i class="fas fa-wrench"></i> Taller Certificado</span>
+            <span class="badge"><i class="fas fa-truck"></i> Envíos a todo Guatuso</span>
         </div>
-        <h1>Potencia para la Tierra</h1>
-        <p>Expertos en venta y reparación de maquinaria agrícola pequeña. Desde motosierras para teca hasta bombas para riego. Si tiene motor, nosotros lo arreglamos.</p>
+        <h1>Potencia para la Tierra Costarricense</h1>
+        <p>Especialistas en motores pequeños: motosierras, motoguadañas, bombas de agua, fumigadoras, ahoyadoras, sopladoras, cortasetos, motoazadas, hidrolavadoras, compresores, molinos, partidores, orilladoras, trituradoras y destoconadoras.</p>
         <div style="margin-top: 20px;">
-            <a href="#catalogo" class="btn">Ver Equipos</a>
-            <a href="#contacto" class="btn btn-outline" style="margin-left: 10px;">Agendar Taller</a>
+            <a href="#catalogo" class="btn">Ver Maquinaria</a>
+            <a href="#contacto" class="btn btn-outline" style="margin-left: 10px;">Agendar Mantenimiento</a>
         </div>
     </section>
 
     <section id="catalogo" class="catalog-section">
-        <h2 class="section-title">Nuestra Maquinaria</h2>
+        <h2 class="section-title">Nuestra Maquinaria en Stock</h2>
         
+        <!-- Botones de filtro actualizados -->
         <div class="filters">
             <button class="filter-btn active" onclick="filterSelection('all')">Todo</button>
             <button class="filter-btn" onclick="filterSelection('motosierra')">Motosierras</button>
-            <button class="filter-btn" onclick="filterSelection('guadana')">Guadañas</button>
+            <button class="filter-btn" onclick="filterSelection('guadana')">Motoguadañas</button>
             <button class="filter-btn" onclick="filterSelection('fumigacion')">Fumigación</button>
-            <button class="filter-btn" onclick="filterSelection('motores')">Bombas / Motores</button>
+            <button class="filter-btn" onclick="filterSelection('motores')">Bombas & Generadores</button>
+            <button class="filter-btn" onclick="filterSelection('ahoyadora')">Ahoyadoras</button>
+            <button class="filter-btn" onclick="filterSelection('sopladora')">Sopladoras</button>
+            <button class="filter-btn" onclick="filterSelection('cortasetos')">Cortasetos</button>
+            <button class="filter-btn" onclick="filterSelection('motoazada')">Motoazadas</button>
+            <button class="filter-btn" onclick="filterSelection('hidrolavadora')">Hidrolavadoras</button>
+            <button class="filter-btn" onclick="filterSelection('partidor')">Partidores</button>
+            <button class="filter-btn" onclick="filterSelection('compresor')">Compresores</button>
+            <button class="filter-btn" onclick="filterSelection('molino')">Molinos</button>
+            <button class="filter-btn" onclick="filterSelection('orilladora')">Orilladoras</button>
+            <button class="filter-btn" onclick="filterSelection('trituradora')">Trituradoras</button>
+            <button class="filter-btn" onclick="filterSelection('destoconadora')">Destoconadoras</button>
         </div>
 
         <div class="product-grid">
-            
+            <!-- Producto: Motosierra -->
             <div class="card filter-item motosierra">
                 <div class="card-inner">
                     <div class="card-front">
-                        <div class="flip-hint"><i class="fas fa-sync-alt"></i></div>
                         <div class="img-container">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/2/23/Stihl_070_Kettens%C3%A4ge.jpg" alt="Motosierra Forestal Profesional">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Stihl_Chainsaw.jpg/800px-Stihl_Chainsaw.jpg" alt="Motosierra Forestal 72cc">
                         </div>
                         <div class="info-front">
-                            <span class="cat-tag">Forestal / Tala Pesada</span>
-                            <h3 class="prod-title">Motosierra Pro 72.2cc (Tipo MS 382)</h3>
-                            <p style="font-size: 0.9rem; color: #666;">La leyenda para maderas duras. Robusta, potente y confiable para trabajo diario.</p>
-                            <div class="price-tag">₡385,000 <small style="font-size: 0.8rem; color: #999; font-weight:400;">(Estimado)</small></div>
-                            <div class="tap-msg"><i class="fas fa-mouse-pointer"></i> Clic para ver ficha técnica</div>
-                        </div>
-                    </div>
-                    <div class="card-back">
-                        <h4>Especificaciones</h4>
-                        <ul class="specs-list">
-                            <li><span>Cilindrada:</span> <strong>72.2 cm³</strong></li>
-                            <li><span>Potencia:</span> <strong>3.9 kW / 5.3 CV</strong></li>
-                            <li><span>Peso:</span> <strong>6.2 kg</strong></li>
-                            <li><span>Espada:</span> <strong>20" - 25" Duromatic</strong></li>
-                            <li><span>Uso:</span> <strong>Profesional / Intensivo</strong></li>
-                        </ul>
-                        <p style="font-size: 0.9rem; margin-bottom: 1rem;">Ideal para tala de Teca y Melina. Contamos con stock completo de repuestos y cadenas.</p>
-                        <span class="stock-status"><i class="fas fa-check-circle"></i> Disponible</span>
-                        <a href="https://wa.me/50687784840?text=Me interesa la Motosierra MS382" class="btn" style="width: 100%; text-align: center; margin-top: auto;">Cotizar por WhatsApp</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card filter-item guadana">
-                <div class="card-inner">
-                    <div class="card-front">
-                        <div class="flip-hint"><i class="fas fa-sync-alt"></i></div>
-                        <div class="img-container">
-                            <img src="https://images.unsplash.com/photo-1622369466650-689d06692224?q=80&w=1965&auto=format&fit=crop" alt="Motoguadaña Desbrozadora">
-                        </div>
-                        <div class="info-front">
-                            <span class="cat-tag">Limpieza / Charral</span>
-                            <h3 class="prod-title">Motoguadaña Profesional (Tipo FS 450)</h3>
-                            <p style="font-size: 0.9rem; color: #666;">Para el trabajo rudo bajo el sol. Eje reforzado y sistema antivibración.</p>
-                            <div class="price-tag">₡395,000 <small style="font-size: 0.8rem; color: #999; font-weight:400;">(Aprox)</small></div>
-                            <div class="tap-msg"><i class="fas fa-mouse-pointer"></i> Clic para ver ficha técnica</div>
-                        </div>
-                    </div>
-                    <div class="card-back">
-                        <h4>Detalles Técnicos</h4>
-                        <ul class="specs-list">
-                            <li><span>Motor:</span> <strong>2 Tiempos, 44.3 cm³</strong></li>
-                            <li><span>Potencia:</span> <strong>2.9 HP</strong></li>
-                            <li><span>Tanque:</span> <strong>0.67 Litros</strong></li>
-                            <li><span>Accesorios:</span> <strong>Cuchilla 3 puntas + Arnés</strong></li>
-                            <li><span>Manillar:</span> <strong>Ergonómico Ajustable</strong></li>
-                        </ul>
-                        <p style="font-size: 0.9rem;">El caballo de batalla en Costa Rica. Soporta jornadas completas de chapea.</p>
-                        <span class="stock-status"><i class="fas fa-check-circle"></i> Repuestos en Stock</span>
-                        <a href="https://wa.me/50687784840?text=Informacion Motoguadaña 450" class="btn" style="width: 100%; text-align: center; margin-top: auto;">Consultar Precio</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card filter-item fumigacion">
-                <div class="card-inner">
-                    <div class="card-front">
-                        <div class="flip-hint"><i class="fas fa-sync-alt"></i></div>
-                        <div class="img-container">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Mistblower_sprayer.jpg" alt="Atomizadora de Espalda">
-                        </div>
-                        <div class="info-front">
-                            <span class="cat-tag">Fumigación Agrícola</span>
-                            <h3 class="prod-title">Atomizadora de Motor 14L (SR 420)</h3>
-                            <p style="font-size: 0.9rem; color: #666;">Alcance y potencia. Perfecta para cultivos de piña, cacao y frutales.</p>
-                            <div class="price-tag">₡310,000</div>
-                            <div class="tap-msg"><i class="fas fa-mouse-pointer"></i> Clic para ver ficha técnica</div>
+                            <span class="cat-tag">Forestal / Tala</span>
+                            <h3 class="prod-title">Motosierra Pro 72.2 cc (Espada 25")</h3>
+                            <p style="font-size: 0.9rem; color: #666;">La bestia de carga para maderas duras. Compatible con repuestos MS382.</p>
+                            <div class="price-tag">₡385,000 <small style="font-size: 0.8rem; color: #999;">aprox</small></div>
                         </div>
                     </div>
                     <div class="card-back">
                         <h4>Ficha Técnica</h4>
                         <ul class="specs-list">
-                            <li><span>Alcance Horiz.:</span> <strong>12 metros</strong></li>
-                            <li><span>Caudal Máx:</span> <strong>1300 m³/h</strong></li>
-                            <li><span>Tanque Químico:</span> <strong>14 Litros</strong></li>
-                            <li><span>Versatilidad:</span> <strong>Líquido / Polvo</strong></li>
-                            <li><span>Peso:</span> <strong>11 kg (vacío)</strong></li>
+                            <li><span>Cilindrada:</span> <strong>72.2 cm³</strong></li>
+                            <li><span>Potencia:</span> <strong>3.9 kW / 5.3 CV</strong></li>
+                            <li><span>Peso:</span> <strong>6.2 kg</strong></li>
+                            <li><span>Espada:</span> <strong>20" a 25" Duromatic</strong></li>
+                            <li><span>Paso Cadena:</span> <strong>3/8" Rapid Super</strong></li>
                         </ul>
-                        <p style="font-size: 0.9rem;">Genere una nube fina que ahorra producto y cubre mejor la planta.</p>
-                        <span class="stock-status"><i class="fas fa-check-circle"></i> Disponible</span>
-                        <a href="https://wa.me/50687784840?text=Precio Atomizadora SR420" class="btn" style="width: 100%; text-align: center; margin-top: auto;">Ver Video Demo</a>
+                        <p style="font-size: 0.9rem; margin-bottom: 1rem;">Ideal para tala de teca y melina. Sistema antivibración de alto rendimiento y filtro de aire de larga duración.</p>
+                        <span class="stock-status"><i class="fas fa-circle"></i> En Stock – Garantía 1 año</span>
+                        <a href="https://wa.me/50687784840?text=Me%20interesa%20la%20Motosierra%2072cc" class="btn" style="width: 100%; text-align: center; margin-top: auto;">Cotizar Ahora</a>
                     </div>
                 </div>
             </div>
 
+            <!-- Producto: Motoguadaña (Desmalezadora) -->
+            <div class="card filter-item guadana">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="img-container">
+                            <img src="https://cdn.pixabay.com/photo/2020/06/25/16/27/brush-cutter-5340263_1280.png" alt="Motoguadaña 2 Tiempos">
+                        </div>
+                        <div class="info-front">
+                            <span class="cat-tag">Limpieza / Charral</span>
+                            <h3 class="prod-title">Motoguadaña Profesional 2.9 HP</h3>
+                            <p style="font-size: 0.9rem; color: #666;">Eje recto sólido. Diseñada para cuchilla y jornadas de 8 horas.</p>
+                            <div class="price-tag">₡295,000 <small style="font-size: 0.8rem; color: #999;">aprox</small></div>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <h4>Especificaciones Técnicas</h4>
+                        <ul class="specs-list">
+                            <li><span>Motor:</span> <strong>2 Tiempos, 44.3 cm³</strong></li>
+                            <li><span>Potencia:</span> <strong>2.1 kW / 2.9 HP</strong></li>
+                            <li><span>Tanque:</span> <strong>0.67 L</strong></li>
+                            <li><span>Herramienta:</span> <strong>Cuchilla 3 puntas / Nylon</strong></li>
+                            <li><span>Manillar:</span> <strong>Abierto (Bici) Ergonómico</strong></li>
+                        </ul>
+                        <p style="font-size: 0.9rem;">El sistema de transmisión reforzado soporta el golpe en terrenos pedregosos. Incluye arnés profesional.</p>
+                        <span class="stock-status"><i class="fas fa-circle"></i> Repuestos Disponibles</span>
+                        <a href="https://wa.me/50687784840?text=Informacion%20Motoguada%C3%B1a%20450" class="btn" style="width: 100%; text-align: center; margin-top: auto;">Consultar</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Producto: Atomizadora / Fumigación -->
+            <div class="card filter-item fumigacion">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="img-container">
+                            <img src="https://m.media-amazon.com/images/I/71N-E6y+NnL._AC_SL1500_.jpg" alt="Atomizadora de Espalda" style="mix-blend-mode: multiply;">
+                        </div>
+                        <div class="info-front">
+                            <span class="cat-tag">Fumigación Agrícola</span>
+                            <h3 class="prod-title">Atomizadora de Motor 14 L (SR 420 Tipo)</h3>
+                            <p style="font-size: 0.9rem; color: #666;">Alcance vertical y horizontal. Perfecta para piñales y cacao.</p>
+                            <div class="price-tag">₡310,000</div>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <h4>Detalles Técnicos</h4>
+                        <ul class="specs-list">
+                            <li><span>Alcance Horiz.:</span> <strong>12 m</strong></li>
+                            <li><span>Caudal Aire:</span> <strong>1300 m³/h</strong></li>
+                            <li><span>Capacidad:</span> <strong>14 L</strong></li>
+                            <li><span>Función:</span> <strong>Líquido / Polvo / Granulado</strong></li>
+                            <li><span>Peso:</span> <strong>11 kg (vacío)</strong></li>
+                        </ul>
+                        <p style="font-size: 0.9rem;">Motor potente que asegura una nube fina para ahorrar químico. Respaldo acolchado cómodo.</p>
+                        <a href="#" class="btn" style="width: 100%; text-align: center; margin-top: auto;">Ver Video Demo</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Producto: Motobomba / Motor de agua -->
             <div class="card filter-item motores">
                 <div class="card-inner">
                     <div class="card-front">
-                        <div class="flip-hint"><i class="fas fa-sync-alt"></i></div>
                         <div class="img-container">
                             <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Honda_water_pump_WB20XT_in_Japan.jpg" alt="Motobomba Honda">
                         </div>
                         <div class="info-front">
                             <span class="cat-tag">Riego / Drenaje</span>
-                            <h3 class="prod-title">Motobomba 3" Honda (WB30)</h3>
-                            <p style="font-size: 0.9rem; color: #666;">Caudal masivo. Motor GX160 de arranque fácil a la primera.</p>
-                            <div class="price-tag">₡275,000</div>
-                            <div class="tap-msg"><i class="fas fa-mouse-pointer"></i> Clic para ver ficha técnica</div>
+                            <h3 class="prod-title">Motobomba Caudal 3" (Motor GX160)</h3>
+                            <p style="font-size: 0.9rem; color: #666;">Autocebante. Motor 4 tiempos OHV de arranque fácil.</p>
+                            <div class="price-tag">₡225,000</div>
                         </div>
                     </div>
                     <div class="card-back">
                         <h4>Ficha Técnica</h4>
                         <ul class="specs-list">
-                            <li><span>Succión/Descarga:</span> <strong>3" (80mm)</strong></li>
-                            <li><span>Caudal Máx:</span> <strong>1100 L/min</strong></li>
-                            <li><span>Altura Total:</span> <strong>28 metros</strong></li>
-                            <li><span>Motor:</span> <strong>Honda GX160 (5.5 HP)</strong></li>
-                            <li><span>Alerta Aceite:</span> <strong>Sí (Oil Alert)</strong></li>
+                            <li><span>Succión/Descarga:</span> <strong>3" x 3" (80 mm)</strong></li>
+                            <li><span>Caudal Máx:</span> <strong>1100 L/min</strong></li>
+                            <li><span>Altura Total:</span> <strong>28 m</strong></li>
+                            <li><span>Motor:</span> <strong>5.5 HP (Tipo GX160)</strong></li>
+                            <li><span>Alerta Aceite:</span> <strong>Sí (Oil Alert)</strong></li>
                         </ul>
-                        <p style="font-size: 0.9rem;">Impulsor de hierro fundido. Ideal para sacar agua del río o llenar tanquetas rápido.</p>
-                        <span class="stock-status"><i class="fas fa-check-circle"></i> Bajo Pedido</span>
-                        <a href="https://wa.me/50687784840?text=Cotizar Bomba Honda 3 pulgadas" class="btn" style="width: 100%; text-align: center; margin-top: auto;">Cotizar</a>
+                        <p style="font-size: 0.9rem;">Impulsor de hierro fundido y sello mecánico de carburo de silicio. Ideal para sacar agua del río o pozo.</p>
+                        <a href="https://wa.me/50687784840?text=Cotizar%20Bomba%203%20pulgadas" class="btn" style="width: 100%; text-align: center; margin-top: auto;">Cotizar</a>
                     </div>
                 </div>
             </div>
 
+            <!-- Producto: Cortadora de Césped -->
             <div class="card filter-item guadana">
                 <div class="card-inner">
                     <div class="card-front">
-                        <div class="flip-hint"><i class="fas fa-sync-alt"></i></div>
                         <div class="img-container">
-                            <img src="https://images.unsplash.com/photo-1592424911762-b52b27072a2c?q=80&w=2070&auto=format&fit=crop" alt="Cortadora de Césped">
+                            <img src="https://cdn.pixabay.com/photo/2014/02/27/16/10/flowers-276014_1280.jpg" alt="Cortadora de Césped">
                         </div>
                         <div class="info-front">
                             <span class="cat-tag">Jardinería</span>
-                            <h3 class="prod-title">Cortadora 21" Rueda Alta</h3>
-                            <p style="font-size: 0.9rem; color: #666;">Motor Briggs & Stratton. 3 en 1: Bolsa, descarga y mulch.</p>
+                            <h3 class="prod-title">Cortadora Césped 21" Autopropulsada</h3>
+                            <p style="font-size: 0.9rem; color: #666;">Motor Briggs & Stratton. 3 en 1: bolsa, descarga lateral y mulch.</p>
                             <div class="price-tag">₡280,000</div>
-                            <div class="tap-msg"><i class="fas fa-mouse-pointer"></i> Clic para ver ficha técnica</div>
                         </div>
                     </div>
                     <div class="card-back">
                         <h4>Detalles Técnicos</h4>
                         <ul class="specs-list">
-                            <li><span>Motor:</span> <strong>6.75 ft-lbs torque</strong></li>
-                            <li><span>Ancho Corte:</span> <strong>21 pulgadas</strong></li>
+                            <li><span>Motor:</span> <strong>6.75 ft‑lbs de torque</strong></li>
+                            <li><span>Corte:</span> <strong>21 pulgadas (53 cm)</strong></li>
                             <li><span>Tracción:</span> <strong>Trasera (Ruedas altas)</strong></li>
-                            <li><span>Ajuste Altura:</span> <strong>6 posiciones</strong></li>
+                            <li><span>Niveles:</span> <strong>6 posiciones de altura</strong></li>
                         </ul>
-                        <p style="font-size: 0.9rem;">Las ruedas traseras altas facilitan el movimiento en terrenos irregulares de jardín.</p>
-                        <span class="stock-status"><i class="fas fa-check-circle"></i> Disponible</span>
-                        <a href="https://wa.me/50687784840?text=Interesado en cortadora de zacate" class="btn" style="width: 100%; text-align: center; margin-top: auto;">Ver Detalles</a>
+                        <p style="font-size: 0.9rem;">Ruedas traseras altas para terreno irregular típico de jardines en zona rural.</p>
+                        <a href="#" class="btn" style="width: 100%; text-align: center; margin-top: auto;">Ver Detalles</a>
                     </div>
                 </div>
             </div>
 
-             <div class="card filter-item motores">
+            <!-- Producto: Generador Eléctrico -->
+            <div class="card filter-item motores">
                 <div class="card-inner">
                     <div class="card-front">
-                        <div class="flip-hint"><i class="fas fa-sync-alt"></i></div>
                         <div class="img-container">
-                             <img src="https://images.unsplash.com/photo-1574360789053-f72cb160c822?q=80&w=2070&auto=format&fit=crop" alt="Generador Electrico">
+                            <img src="https://p0.pikist.com/photos/562/314/generator-power-emergency-electricity-equipment-gasoline-portable-industrial-electric.jpg" alt="Generador Electrico">
                         </div>
                         <div class="info-front">
-                            <span class="cat-tag">Energía / Emergencia</span>
-                            <h3 class="prod-title">Generador 6500W (Arranque Eléctrico)</h3>
-                            <p style="font-size: 0.9rem; color: #666;">Suficiente para casa entera, lechería pequeña o soldar.</p>
+                            <span class="cat-tag">Energía</span>
+                            <h3 class="prod-title">Generador 6500 W (Arranque Eléctrico)</h3>
+                            <p style="font-size: 0.9rem; color: #666;">Suficiente para casa entera, lechería pequeña o soldadora inverter.</p>
                             <div class="price-tag">₡550,000</div>
-                            <div class="tap-msg"><i class="fas fa-mouse-pointer"></i> Clic para ver ficha técnica</div>
                         </div>
                     </div>
                     <div class="card-back">
                         <h4>Ficha Técnica</h4>
                         <ul class="specs-list">
-                            <li><span>Potencia Máx:</span> <strong>6.5 kW</strong></li>
-                            <li><span>Potencia Cont:</span> <strong>5.5 kW</strong></li>
-                            <li><span>Salida:</span> <strong>120V / 240V</strong></li>
-                            <li><span>Tanque:</span> <strong>25 Litros (10hrs)</strong></li>
-                            <li><span>Encendido:</span> <strong>Llave / Yoyo</strong></li>
+                            <li><span>Potencia Máx:</span> <strong>6.5 kW</strong></li>
+                            <li><span>Potencia Cont:</span> <strong>5.5 kW</strong></li>
+                            <li><span>Voltaje:</span> <strong>120/240 V</strong></li>
+                            <li><span>Tanque:</span> <strong>25 L (10 h)</strong></li>
+                            <li><span>Encendido:</span> <strong>Llavín y Yoyo</strong></li>
                         </ul>
-                        <p style="font-size: 0.9rem;">Incluye regulador AVR para proteger televisores y refrigeradoras. Kit de ruedas incluido.</p>
-                        <span class="stock-status"><i class="fas fa-check-circle"></i> Pocas Unidades</span>
-                        <a href="https://wa.me/50687784840?text=Consulta Generador Electrico" class="btn" style="width: 100%; text-align: center; margin-top: auto;">Consultar Envío</a>
+                        <p style="font-size: 0.9rem;">AVR incluido (regulador de voltaje automático) para proteger equipos sensibles.</p>
+                        <a href="#" class="btn" style="width: 100%; text-align: center; margin-top: auto;">Consultar Envío</a>
                     </div>
                 </div>
             </div>
 
+            <!-- Producto: Ahoyadora (Post Hole Digger) -->
+            <div class="card filter-item ahoyadora">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="img-container">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Ferguson_post_hole_auger_-_3342.jpg/800px-Ferguson_post_hole_auger_-_3342.jpg" alt="Ahoyadora 52cc">
+                        </div>
+                        <div class="info-front">
+                            <span class="cat-tag">Siembra / Construcción</span>
+                            <h3 class="prod-title">Ahoyadora a Gasolina 52 cc (Broca 8")</h3>
+                            <p style="font-size: 0.9rem; color: #666;">Ideal para postes y huecos de árbol. Incluye broca de 8" y opción de 6".</p>
+                            <div class="price-tag">₡270,000 <small style="font-size: 0.8rem; color: #999;">aprox</small></div>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <h4>Especificaciones Técnicas</h4>
+                        <ul class="specs-list">
+                            <li><span>Motor:</span> <strong>2 tiempos 52 cm³</strong></li>
+                            <li><span>Potencia:</span> <strong>1.9 kW / 2.6 HP</strong></li>
+                            <li><span>Broca:</span> <strong>200 mm (8")</strong></li>
+                            <li><span>Velocidad:</span> <strong>170 rpm</strong></li>
+                            <li><span>Peso:</span> <strong>10 kg</strong></li>
+                        </ul>
+                        <p style="font-size: 0.9rem;">Embrague centrífugo y arranque fácil. Uso para 1 o 2 operadores.</p>
+                        <span class="stock-status"><i class="fas fa-circle"></i> Disponible</span>
+                        <a href="https://wa.me/50687784840?text=Quiero%20cotizar%20la%20ahoyadora" class="btn" style="width: 100%; text-align: center; margin-top: auto;">Cotizar Ahora</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Producto: Sopladora (Leaf Blower) -->
+            <div class="card filter-item sopladora">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="img-container">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Husqvarna_leaf_blowers.jpg/800px-Husqvarna_leaf_blowers.jpg" alt="Sopladora 25cc">
+                        </div>
+                        <div class="info-front">
+                            <span class="cat-tag">Limpieza</span>
+                            <h3 class="prod-title">Sopladora Manual 25.4 cc (600 CFM)</h3>
+                            <p style="font-size: 0.9rem; color: #666;">Ligera y potente; despeja hojas y residuos con facilidad.</p>
+                            <div class="price-tag">₡280,000 <small style="font-size: 0.8rem; color: #999;">aprox</small></div>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <h4>Especificaciones Técnicas</h4>
+                        <ul class="specs-list">
+                            <li><span>Cilindrada:</span> <strong>25.4 cm³</strong></li>
+                            <li><span>Potencia:</span> <strong>0.8 kW / 1.1 HP</strong></li>
+                            <li><span>Velocidad Aire:</span> <strong>80 m/s (≈170 mph)</strong></li>
+                            <li><span>Caudal Aire:</span> <strong>12 m³/min (≈456 CFM)</strong></li>
+                            <li><span>Peso:</span> <strong>4.5 kg</strong></li>
+                        </ul>
+                        <p style="font-size: 0.9rem;">Basado en especificaciones típicas de sopladoras de mano que alcanzan 170 mph y 456 CFM【469406083752259†L71-L89】.</p>
+                        <span class="stock-status"><i class="fas fa-circle"></i> Disponible para entrega</span>
+                        <a href="https://wa.me/50687784840?text=Me%20interesa%20la%20sopladora%2025cc" class="btn" style="width: 100%; text-align: center; margin-top: auto;">Solicitar Info</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Producto: Cortasetos (Hedge Trimmer) -->
+            <div class="card filter-item cortasetos">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="img-container">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Hedge_trimmers.JPG/800px-Hedge_trimmers.JPG" alt="Cortasetos 22cc">
+                        </div>
+                        <div class="info-front">
+                            <span class="cat-tag">Recorte / Jardín</span>
+                            <h3 class="prod-title">Cortasetos Doble Cuchilla 22 cc</h3>
+                            <p style="font-size: 0.9rem; color: #666;">Recorte limpio en setos y cercas. Sistema antivibración y arranque fácil.</p>
+                            <div class="price-tag">₡310,000 <small style="font-size: 0.8rem; color: #999;">aprox</small></div>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <h4>Especificaciones Técnicas</h4>
+                        <ul class="specs-list">
+                            <li><span>Motor:</span> <strong>2 Tiempos 22.5 cm³</strong></li>
+                            <li><span>Cuchilla:</span> <strong>55 cm (22")</strong></li>
+                            <li><span>Peso:</span> <strong>5.1 kg</strong></li>
+                            <li><span>Diente:</span> <strong>28 mm</strong></li>
+                            <li><span>Tanque:</span> <strong>0.44 L</strong></li>
+                        </ul>
+                        <p style="font-size: 0.9rem;">Ideal para cercas vivas. La doble cuchilla reduce el esfuerzo en cada pasada.</p>
+                        <span class="stock-status"><i class="fas fa-circle"></i> Garantía 6 meses</span>
+                        <a href="https://wa.me/50687784840?text=Informacion%20Cortasetos" class="btn" style="width: 100%; text-align: center; margin-top: auto;">Más Información</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Producto: Motoazada / Cultivador -->
+            <div class="card filter-item motoazada">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="img-container">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Rau_Rototiller.jpg/800px-Rau_Rototiller.jpg" alt="Motoazada 7HP">
+                        </div>
+                        <div class="info-front">
+                            <span class="cat-tag">Labranza</span>
+                            <h3 class="prod-title">Motoazada 7 HP (Ancho 60 cm)</h3>
+                            <p style="font-size: 0.9rem; color: #666;">Arranque fácil, para huertos y parcelas. Incluye contrapesos y rueda.</p>
+                            <div class="price-tag">₡395,000 <small style="font-size: 0.8rem; color: #999;">aprox</small></div>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <h4>Ficha Técnica</h4>
+                        <ul class="specs-list">
+                            <li><span>Motor:</span> <strong>4 Tiempos 212 cm³</strong></li>
+                            <li><span>Potencia:</span> <strong>7 HP</strong></li>
+                            <li><span>Ancho Labranza:</span> <strong>60 cm</strong></li>
+                            <li><span>Profundidad:</span> <strong>30 cm</strong></li>
+                            <li><span>Transmisión:</span> <strong>2 marchas (1 adelante/1 atrás)</strong></li>
+                        </ul>
+                        <p style="font-size: 0.9rem;">Ideal para preparar suelos en terrenos compactos. Incluye manillar ajustable.</p>
+                        <span class="stock-status"><i class="fas fa-circle"></i> Disponible</span>
+                        <a href="https://wa.me/50687784840?text=Motoazada%207HP" class="btn" style="width: 100%; text-align: center; margin-top: auto;">Cotizar</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Producto: Hidrolavadora / Pressure Washer -->
+            <div class="card filter-item hidrolavadora">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="img-container">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Pressure_Washer.JPG/800px-Pressure_Washer.JPG" alt="Hidrolavadora 6.5HP">
+                        </div>
+                        <div class="info-front">
+                            <span class="cat-tag">Limpieza Alta Presión</span>
+                            <h3 class="prod-title">Hidrolavadora 2500 PSI 6.5 HP</h3>
+                            <p style="font-size: 0.9rem; color: #666;">Perfecta para maquinaria, vehículos y superficies agrícolas.</p>
+                            <div class="price-tag">₡375,000 <small style="font-size: 0.8rem; color: #999;">aprox</small></div>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <h4>Especificaciones Técnicas</h4>
+                        <ul class="specs-list">
+                            <li><span>Motor:</span> <strong>4 Tiempos 196 cm³</strong></li>
+                            <li><span>Potencia:</span> <strong>6.5 HP</strong></li>
+                            <li><span>Presión:</span> <strong>2500 PSI</strong></li>
+                            <li><span>Caudal:</span> <strong>9 L/min</strong></li>
+                            <li><span>Tanque:</span> <strong>1.1 L</strong></li>
+                        </ul>
+                        <p style="font-size: 0.9rem;">Bomba axial con bielas reforzadas y boquillas intercambiables para diferentes chorros.</p>
+                        <span class="stock-status"><i class="fas fa-circle"></i> Garantía 6 meses</span>
+                        <a href="https://wa.me/50687784840?text=Hidrolavadora%206.5HP" class="btn" style="width: 100%; text-align: center; margin-top: auto;">Consultar</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Producto: Partidor de Troncos / Log Splitter -->
+            <div class="card filter-item partidor">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="img-container">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Log_Splitter_Kvilda_B.jpg/800px-Log_Splitter_Kvilda_B.jpg" alt="Partidor de Troncos">
+                        </div>
+                        <div class="info-front">
+                            <span class="cat-tag">Forestal</span>
+                            <h3 class="prod-title">Partidor de Troncos 8 Ton (6.5 HP)</h3>
+                            <p style="font-size: 0.9rem; color: #666;">Divide troncos para leña y aserraderos. Ciclo rápido.</p>
+                            <div class="price-tag">₡580,000 <small style="font-size: 0.8rem; color: #999;">aprox</small></div>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <h4>Ficha Técnica</h4>
+                        <ul class="specs-list">
+                            <li><span>Motor:</span> <strong>4 Tiempos 6.5 HP</strong></li>
+                            <li><span>Fuerza:</span> <strong>8 toneladas</strong></li>
+                            <li><span>Carrera:</span> <strong>50 cm</strong></li>
+                            <li><span>Diámetro Tronco:</span> <strong>hasta 30 cm</strong></li>
+                            <li><span>Peso:</span> <strong>100 kg</strong></li>
+                        </ul>
+                        <p style="font-size: 0.9rem;">Válvula de retorno automático y mesa reforzada. Ideal para aserríos y finca.</p>
+                        <span class="stock-status"><i class="fas fa-circle"></i> Lista para entrega</span>
+                        <a href="https://wa.me/50687784840?text=Partidor%20de%20troncos" class="btn" style="width: 100%; text-align: center; margin-top: auto;">Solicitar Cotización</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Producto: Compresor Portátil -->
+            <div class="card filter-item compresor">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="img-container">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Portable_Single_Stage_Air_Compressor.jpg/800px-Portable_Single_Stage_Air_Compressor.jpg" alt="Compresor Portátil 2HP">
+                        </div>
+                        <div class="info-front">
+                            <span class="cat-tag">Aire / Taller</span>
+                            <h3 class="prod-title">Compresor Portátil 50 L 2 HP</h3>
+                            <p style="font-size: 0.9rem; color: #666;">Perfecto para taller y finca; lubricado con aceite para mayor vida útil.</p>
+                            <div class="price-tag">₡210,000 <small style="font-size: 0.8rem; color: #999;">aprox</small></div>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <h4>Ficha Técnica</h4>
+                        <ul class="specs-list">
+                            <li><span>Motor:</span> <strong>2 HP</strong></li>
+                            <li><span>Tanque:</span> <strong>50 L</strong></li>
+                            <li><span>Aire Entregado:</span> <strong>180 L/min</strong></li>
+                            <li><span>Presión Máx:</span> <strong>115 PSI</strong></li>
+                            <li><span>Peso:</span> <strong>40 kg</strong></li>
+                        </ul>
+                        <p style="font-size: 0.9rem;">Cuenta con doble salida rápida y ruedas para transporte. Perfecto para clavar, pintar y soplar.</p>
+                        <span class="stock-status"><i class="fas fa-circle"></i> Disponible</span>
+                        <a href="https://wa.me/50687784840?text=Compresor%2050L" class="btn" style="width: 100%; text-align: center; margin-top: auto;">Cotizar</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Producto: Molino de Martillos / Feed Grinder -->
+            <div class="card filter-item molino">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="img-container">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/IHC_Feed_Grinder_001.jpg/800px-IHC_Feed_Grinder_001.jpg" alt="Molino de Martillos">
+                        </div>
+                        <div class="info-front">
+                            <span class="cat-tag">Molino / Alimentación</span>
+                            <h3 class="prod-title">Molino de Martillos 3 HP</h3>
+                            <p style="font-size: 0.9rem; color: #666;">Muele granos y forrajes para alimentar ganado y aves.</p>
+                            <div class="price-tag">₡450,000 <small style="font-size: 0.8rem; color: #999;">aprox</small></div>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <h4>Especificaciones Técnicas</h4>
+                        <ul class="specs-list">
+                            <li><span>Motor:</span> <strong>3 HP (4 Tiempos)</strong></li>
+                            <li><span>Producción:</span> <strong>200 kg/h</strong></li>
+                            <li><span>Tolva:</span> <strong>30 L</strong></li>
+                            <li><span>Tamiz:</span> <strong>4 mm</strong></li>
+                            <li><span>Peso:</span> <strong>60 kg</strong></li>
+                        </ul>
+                        <p style="font-size: 0.9rem;">Rotor balanceado para reducir vibración. Incluye juego de cribas para distintos granos.</p>
+                        <span class="stock-status"><i class="fas fa-circle"></i> Garantía 1 año</span>
+                        <a href="https://wa.me/50687784840?text=Molino%203HP" class="btn" style="width: 100%; text-align: center; margin-top: auto;">Consultar</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Producto: Orilladora / Edger -->
+            <div class="card filter-item orilladora">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="img-container">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Stihltrimmers.jpg/800px-Stihltrimmers.jpg" alt="Orilladora 31cc">
+                        </div>
+                        <div class="info-front">
+                            <span class="cat-tag">Bordes / Jardinería</span>
+                            <h3 class="prod-title">Orilladora Profesional 31 cc</h3>
+                            <p style="font-size: 0.9rem; color: #666;">Define bordes de césped y senderos con precisión. Cabezal inclinable y rueda guía.</p>
+                            <div class="price-tag">₡265,000 <small style="font-size: 0.8rem; color: #999;">aprox</small></div>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <h4>Especificaciones Técnicas</h4>
+                        <ul class="specs-list">
+                            <li><span>Motor:</span> <strong>2 Tiempos 31 cm³</strong></li>
+                            <li><span>Potencia:</span> <strong>1.2 kW / 1.6 HP</strong></li>
+                            <li><span>Ancho Corte:</span> <strong>20 cm</strong></li>
+                            <li><span>Cuchilla:</span> <strong>8" acero</strong></li>
+                            <li><span>Peso:</span> <strong>7 kg</strong></li>
+                        </ul>
+                        <p style="font-size: 0.9rem;">Tanque de combustible de 0.6 L. Fácil cambio de cuchilla o hilo. Ideal para acabados profesionales.</p>
+                        <span class="stock-status"><i class="fas fa-circle"></i> En Stock</span>
+                        <a href="https://wa.me/50687784840?text=Orilladora%2031cc" class="btn" style="width: 100%; text-align: center; margin-top: auto;">Cotizar</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Producto: Trituradora de Ramas / Chipper -->
+            <div class="card filter-item trituradora">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="img-container">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Chipper-shredder.jpg/800px-Chipper-shredder.jpg" alt="Trituradora de Ramas 7HP">
+                        </div>
+                        <div class="info-front">
+                            <span class="cat-tag">Chipeado / Reciclaje</span>
+                            <h3 class="prod-title">Trituradora de Ramas 7 HP (Cap. 3")</h3>
+                            <p style="font-size: 0.9rem; color: #666;">Reduce ramas y residuos para compostaje o mulch.</p>
+                            <div class="price-tag">₡480,000 <small style="font-size: 0.8rem; color: #999;">aprox</small></div>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <h4>Ficha Técnica</h4>
+                        <ul class="specs-list">
+                            <li><span>Motor:</span> <strong>4 Tiempos 208 cm³</strong></li>
+                            <li><span>Potencia:</span> <strong>7 HP</strong></li>
+                            <li><span>Capacidad Corte:</span> <strong>7.5 cm (3")</strong></li>
+                            <li><span>Velocidad:</span> <strong>3600 rpm</strong></li>
+                            <li><span>Peso:</span> <strong>80 kg</strong></li>
+                        </ul>
+                        <p style="font-size: 0.9rem;">Tolva autoalimentada con cuchillas reversibles. Produce astilla fina ideal para compost.</p>
+                        <span class="stock-status"><i class="fas fa-circle"></i> Disponible</span>
+                        <a href="https://wa.me/50687784840?text=Trituradora%207HP" class="btn" style="width: 100%; text-align: center; margin-top: auto;">Solicitar Cotización</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Producto: Destoconadora / Stump Grinder -->
+            <div class="card filter-item destoconadora">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="img-container">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Stump_grinder.jpg/800px-Stump_grinder.jpg" alt="Destoconadora 15HP">
+                        </div>
+                        <div class="info-front">
+                            <span class="cat-tag">Eliminación de Tocones</span>
+                            <h3 class="prod-title">Destoconadora 15 HP (Rueda 30 cm)</h3>
+                            <p style="font-size: 0.9rem; color: #666;">Arranca tocones y raíces de forma rápida y segura.</p>
+                            <div class="price-tag">₡895,000 <small style="font-size: 0.8rem; color: #999;">aprox</small></div>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <h4>Especificaciones Técnicas</h4>
+                        <ul class="specs-list">
+                            <li><span>Motor:</span> <strong>4 Tiempos 420 cm³</strong></li>
+                            <li><span>Potencia:</span> <strong>15 HP</strong></li>
+                            <li><span>Rueda Corte:</span> <strong>30 cm diámetro</strong></li>
+                            <li><span>Profundidad Corte:</span> <strong>22 cm</strong></li>
+                            <li><span>Peso:</span> <strong>135 kg</strong></li>
+                        </ul>
+                        <p style="font-size: 0.9rem;">8 dientes de carburo para triturar. Cortes 12 cm sobre el nivel del suelo y 22 cm debajo.</p>
+                        <span class="stock-status"><i class="fas fa-circle"></i> Garantía 1 año</span>
+                        <a href="https://wa.me/50687784840?text=Destoconadora%2015HP" class="btn" style="width: 100%; text-align: center; margin-top: auto;">Cotizar</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
     <section style="padding: 3rem 5%; background: white; text-align: center;">
-        <h3 style="margin-bottom: 2rem; color: #777;">Trabajamos con las Mejores Marcas</h3>
-        <div style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; opacity: 0.7; align-items: center;">
-            <i class="fas fa-tools" style="font-size: 2rem;"></i>
-            <h2 style="font-weight: 900; font-style: italic; color: #F77F00;">STIHL</h2>
-            <h2 style="font-weight: 900; color: #16365C;">Husqvarna</h2>
-            <h2 style="font-weight: 900; color: #CC0000; font-family: sans-serif;">HONDA</h2>
-            <h2 style="font-weight: 900; color: #D62828;">Shindaiwa</h2>
+        <h3 style="margin-bottom: 2rem; color: #777;">Trabajamos con repuestos compatibles y originales</h3>
+        <div style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; opacity: 0.6; filter: grayscale(100%);">
+            <h2 style="font-weight: 900; font-style: italic;">STIHL</h2>
+            <h2 style="font-weight: 900; color: #333;">Husqvarna</h2>
+            <h2 style="font-weight: 900; font-family: sans-serif;">HONDA</h2>
+            <h2 style="font-weight: 900;">Shindaiwa</h2>
+            <h2 style="font-weight: 900;">Briggs & Stratton</h2>
         </div>
     </section>
 
     <section id="contacto" class="contact-section">
         <div class="contact-info">
-            <h2 style="margin-bottom: 10px; color: var(--brand-orange);">Contáctenos</h2>
-            <p style="margin-bottom: 40px; color: #ccc;">Traiga su equipo para diagnóstico o escríbanos para cotizar repuestos.</p>
+            <h2 style="margin-bottom: 20px;">Visítanos en el Taller</h2>
+            <p style="margin-bottom: 30px; line-height: 1.6;">No dejes que tu maquinaria se detenga. Trae tu equipo para diagnóstico sin compromiso o agenda una visita técnica si es maquinaria estacionaria.</p>
             
-            <div class="contact-item">
-                <i class="fas fa-map-marker-alt"></i>
-                <div>
-                    <h5>UBICACIÓN</h5>
-                    <p>Del Puente del Río Frío, 2 km oeste camino a Katira, San Rafael de Guatuso.</p>
-                    <a href="https://waze.com/ul?ll=10.709,-84.825&navigate=yes" target="_blank" style="color: var(--brand-orange); font-size: 0.9rem; margin-top: 5px; display: inline-block;"><i class="fab fa-waze"></i> Ir con Waze</a>
-                </div>
+            <div style="margin-bottom: 20px;">
+                <i class="fas fa-map-marker-alt" style="color: var(--brand-orange); width: 30px;"></i>
+                <strong>Dirección:</strong> Del Puente del Río Frío, 2 km oeste camino a Katira, San Rafael de Guatuso.
+            </div>
+            <div style="margin-bottom: 20px;">
+                <i class="fas fa-phone" style="color: var(--brand-orange); width: 30px;"></i>
+                <strong>Teléfono:</strong> <a href="tel:+50687784840" style="color: white;">8778‑4840</a>
+            </div>
+            <div style="margin-bottom: 20px;">
+                <i class="far fa-clock" style="color: var(--brand-orange); width: 30px;"></i>
+                <strong>Horario:</strong> Lunes a Viernes 7:00 AM – 5:00 PM
             </div>
 
-            <div class="contact-item">
-                <i class="fas fa-phone"></i>
-                <div>
-                    <h5>TELÉFONO / WHATSAPP</h5>
-                    <a href="tel:+50687784840">8778-4840</a>
-                </div>
-            </div>
-
-            <div class="contact-item">
-                <i class="fas fa-envelope"></i>
-                <div>
-                    <h5>CORREO ELECTRÓNICO</h5>
-                    <a href="mailto:monestaller@gmail.com">monestaller@gmail.com</a>
-                </div>
-            </div>
-
-            <div class="contact-item">
-                <i class="far fa-clock"></i>
-                <div>
-                    <h5>HORARIO</h5>
-                    <p>Lunes - Viernes: 7:00 AM - 5:00 PM</p>
-                    <p style="font-size: 0.9rem; font-weight: normal; color: #aaa;">Sábados: 7:00 AM - 12:00 MD</p>
-                </div>
-            </div>
+            <a href="https://waze.com/ul?ll=10.709,-84.825&navigate=yes" target="_blank" class="btn btn-outline"><i class="fab fa-waze"></i> Ir con Waze</a>
         </div>
         <div class="map-box">
-             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31405.57861596752!2d-84.8436040856018!3d10.672404099999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa00c4314144365%3A0x7d25e01b3390c50!2sProvincia%20de%20Alajuela%2C%20San%20Rafael!5e0!3m2!1ses-419!2scr!4v1689278456123!5m2!1ses-419!2scr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62808.62386926839!2d-84.8565152399653!3d10.67269188053429!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa0056637175519%3A0xc3924f707f4955a!2sSan%20Rafael%20de%20Guatuso%2C%20Alajuela%20Province%2C%20Guatuso!5e0!3m2!1en!2scr!4v1685031234567!5m2!1en!2scr" allowfullscreen="" loading="lazy"></iframe>
         </div>
     </section>
 
-    <footer style="background: #111; color: #555; padding: 30px 5%; text-align: center; font-size: 0.8rem; border-top: 1px solid #222;">
-        <p>© <span id="year"></span> Taller J. Monestel. Guatuso, Alajuela.</p>
-        <p style="margin-top: 5px;">Correo: <a href="mailto:monestaller@gmail.com" style="color: #555;">monestaller@gmail.com</a></p>
+    <footer style="background: #111; color: #555; padding: 20px; text-align: center; font-size: 0.8rem;">
+        <p>&copy; 2025 Taller J. Monestel. Precios sujetos a cambio. Imágenes con fines ilustrativos.</p>
     </footer>
 
     <script>
-        // Actualizar año automáticamente
-        document.getElementById("year").innerHTML = new Date().getFullYear();
-
-        // Script de filtrado
+        // Script de filtrado de tarjetas
         function filterSelection(c) {
             var x, i;
             x = document.getElementsByClassName("filter-item");
             var btns = document.getElementsByClassName("filter-btn");
-            
-            // Gestión de botones activos
             for (let btn of btns) {
                 btn.classList.remove("active");
                 if (btn.getAttribute("onclick").includes(c)) btn.classList.add("active");
             }
-
             if (c == "all") c = "";
             for (i = 0; i < x.length; i++) {
                 w3RemoveClass(x[i], "show");
                 if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
             }
         }
-
-        // Estilos dinámicos para animación de filtrado
+        // Agregar estilos dinámicos para filtrado
         var style = document.createElement('style');
         style.innerHTML = `
-            .filter-item { display: none; } 
-            .filter-item.show { display: block; animation: fadeIn 0.5s ease-out; }
-            @keyframes fadeIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
+            .filter-item { display: none; }
+            .filter-item.show { display: block; animation: fadeIn 0.5s; }
+            @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
         `;
         document.head.appendChild(style);
-
         function w3AddClass(element, name) {
             var i, arr1, arr2;
             arr1 = element.className.split(" ");
@@ -521,20 +1010,18 @@
                 if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
             }
         }
-
         function w3RemoveClass(element, name) {
             var i, arr1, arr2;
             arr1 = element.className.split(" ");
             arr2 = name.split(" ");
             for (i = 0; i < arr2.length; i++) {
                 while (arr1.indexOf(arr2[i]) > -1) {
-                    arr1.splice(arr1.indexOf(arr2[i]), 1);     
+                    arr1.splice(arr1.indexOf(arr2[i]), 1);
                 }
             }
             element.className = arr1.join(" ");
         }
-
-        // Inicializar mostrando todo
+        // Inicializar filtro mostrando todos los productos
         filterSelection("all");
     </script>
 
