@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Taller J. Monestel: Especialistas en STIHL, Husqvarna, Honda y Shindaiwa. Venta y reparación en Guatuso, Alajuela.">
+    <title>Maquinaria Agrícola J. Monestel | El Experto de Guatuso</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- ESTÉTICA INDUSTRIAL / AGRÍCOLA --- */
+        :root {
+            --brand-orange: #FF4500; 
+            --brand-dark: #212121;
+            --brand-grey: #4A4A4A;
+            --brand-green: #2E8B57;
+            --brand-metal: #B0C4DE;
+            
+            --font-tech: 'Roboto Condensed', sans-serif;
+            --font-body: 'Open Sans', sans-serif;
+            
+            --shadow-card: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: var(--font-body);
+            background-color: #f4f4f4;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* --- TYPOGRAPHY & BUTTONS --- */
+        h1, h2, h3, h4 { font-family: var(--font-tech); text-transform: uppercase; letter-spacing: 1px; }
+        
+        .btn {
+            display: inline-block; padding: 12px 25px; 
+            background: var(--brand-orange); color: white; 
+            text-decoration: none; font-weight: bold; border-radius: 4px;
+            transition: all 0.3s; border: none; cursor: pointer;
+            text-transform: uppercase; letter-spacing: 1px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+        }
+        .btn:hover { background: #e03e00; transform: translateY(-2px); }
+        .btn-outline { background: transparent; border: 2px solid white; }
+        .btn-outline:hover { background: white; color: var(--brand-dark); }
+
+        /* --- HEADER --- */
+        header {
+            background: var(--brand-dark); color: white; padding: 1rem 5%;
+            display: flex; justify-content: space-between; align-items: center;
+            position: sticky; top: 0; z-index: 1000; border-bottom: 4px solid var(--brand-orange);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        .logo { font-size: 1.5rem; font-weight: 700; color: white; display: flex; align-items: center; gap: 10px; }
+        .logo i { color: var(--brand-orange); font-size: 1.8rem; }
+        
+        nav ul { display: flex; list-style: none; gap: 20px; }
+        nav a { color: #ccc; text-decoration: none; font-weight: 600; transition: color 0.3s; font-size: 0.9rem; text-transform: uppercase; }
+        nav a:hover { color: var(--brand-orange); }
+
+        .header-contact { display: flex; gap: 15px; align-items: center; }
+        .email-link { color: #ccc; text-decoration: none; font-size: 0.9rem; }
+        .email-link:hover { color: white; text-decoration: underline; }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 85vh;
+            /* Imagen de fondo de campo agrícola real */
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1530260626688-d48233547087?q=80&w=2070&auto=format&fit=crop'); 
+            background-size: cover; background-position: center; background-attachment: fixed;
+            display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: white; padding: 20px;
+        }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 1rem; text-shadow: 2px 2px 4px black; }
+        .hero p { font-size: 1.3rem; max-width: 700px; margin-bottom: 2rem; font-weight: 300; }
+        .badges { display: flex; gap: 15px; margin-bottom: 2rem; flex-wrap: wrap; justify-content: center; }
+        .badge { background: rgba(255,69,0,0.2); backdrop-filter: blur(5px); padding: 8px 18px; border: 1px solid var(--brand-orange); border-radius: 4px; font-size: 0.9rem; font-weight: bold; letter-spacing: 0.5px; }
+
+        /* --- CATALOG GRID --- */
+        .catalog-section { padding: 4rem 5%; background: #e9ecef; }
+        .section-title { text-align: center; margin-bottom: 3rem; font-size: 2.5rem; color: var(--brand-dark); position: relative; }
+        .section-title::after { content: ''; width: 80px; height: 5px; background: var(--brand-orange); position: absolute; bottom: -15px; left: 50%; transform: translateX(-50%); }
+
+        .filters { text-align: center; margin-bottom: 3rem; }
+        .filter-btn { background: white; border: 1px solid #ccc; padding: 10px 25px; margin: 5px; cursor: pointer; font-weight: 700; color: #555; transition: 0.3s; font-family: var(--font-tech); text-transform: uppercase; }
+        .filter-btn.active, .filter-btn:hover { background: var(--brand-dark); color: white; border-color: var(--brand-dark); }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+
+        /* --- REALISTIC PRODUCT CARDS (Flip Effect) --- */
+        .card {
+            background-color: transparent;
+            perspective: 1000px;
+            height: 520px; /* Aumentado ligeramente */
+            cursor: pointer;
+        }
+        .card-inner {
+            position: relative; width: 100%; height: 100%; text-align: left;
+            transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+            transform-style: preserve-3d;
+            box-shadow: var(--shadow-card); border-radius: 10px;
+        }
+        .card:hover .card-inner, .card.flipped .card-inner { transform: rotateY(180deg); }
+
+        .card-front, .card-back {
+            position: absolute; width: 100%; height: 100%;
+            -webkit-backface-visibility: hidden; backface-visibility: hidden;
+            border-radius: 10px; overflow: hidden; background: white;
+        }
+
+        /* Front Styling */
+        .card-front { display: flex; flex-direction: column; border-top: 4px solid var(--brand-orange); }
+        .img-container { 
+            height: 55%; background: white; padding: 20px; 
+            display: flex; align-items: center; justify-content: center; border-bottom: 1px solid #eee;
+            position: relative;
+        }
+        .img-container img { max-width: 100%; max-height: 100%; object-fit: contain; filter: drop-shadow(0 5px 5px rgba(0,0,0,0.2)); transition: transform 0.3s; }
+        .card:hover .img-container img { transform: scale(1.05); }
+        
+        .flip-hint { position: absolute; top: 10px; right: 10px; color: #aaa; font-size: 1.2rem; background: rgba(255,255,255,0.8); padding: 5px; border-radius: 50%; }
+
+        .info-front { padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
+        .cat-tag { font-size: 0.8rem; color: var(--brand-orange); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+        .prod-title { font-size: 1.4rem; margin: 8px 0; color: var(--brand-dark); line-height: 1.2; }
+        .price-tag { font-size: 1.4rem; font-weight: 700; color: var(--brand-green); margin-top: 10px; }
+        .tap-msg { text-align: center; font-size: 0.75rem; color: #999; margin-top: auto; padding-top: 10px;}
+
+        /* Back Styling (Ficha Técnica) */
+        .card-back {
+            background: #212529; color: #f8f9fa; transform: rotateY(180deg);
+            padding: 2rem; display: flex; flex-direction: column; border-top: 4px solid var(--brand-orange);
+        }
+        .card-back h4 { border-bottom: 1px solid #444; padding-bottom: 10px; margin-bottom: 15px; color: var(--brand-orange); }
+        .specs-list { list-style: none; margin: 0 0 1rem 0; font-size: 0.95rem; }
+        .specs-list li { display: flex; justify-content: space-between; margin-bottom: 12px; border-bottom: 1px dotted #444; padding-bottom: 2px; }
+        .specs-list li span { color: #adb5bd; }
+        .specs-list li strong { color: white; font-weight: 600; }
+        .stock-status { color: #2ecc71; font-size: 0.9rem; margin-bottom: 15px; display: block; font-weight: bold; }
+
+        /* --- CONTACT & MAP --- */
+        .contact-section { display: grid; grid-template-columns: 1fr 1.2fr; background: var(--brand-dark); color: white; }
+        .contact-info { padding: 4rem; display: flex; flex-direction: column; justify-content: center; }
+        .map-box { min-height: 450px; background: #333; }
+        .map-box iframe { width: 100%; height: 100%; border: 0; filter: grayscale(20%) contrast(1.1); }
+
+        .contact-item { margin-bottom: 25px; display: flex; align-items: flex-start; gap: 15px; }
+        .contact-item i { color: var(--brand-orange); font-size: 1.2rem; margin-top: 4px; }
+        .contact-item div h5 { margin-bottom: 5px; color: #ccc; font-size: 0.9rem; }
+        .contact-item div p, .contact-item div a { font-size: 1.1rem; color: white; text-decoration: none; font-weight: 600; }
+
+        /* --- FLOATING WHATSAPP --- */
+        .floating-wpp {
+            position: fixed; bottom: 30px; right: 30px;
+            background-color: #25D366; color: white;
+            width: 60px; height: 60px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 2000; transition: transform 0.3s;
+            text-decoration: none;
+        }
+        .floating-wpp:hover { transform: scale(1.1); background-color: #20ba5a; }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .contact-section { grid-template-columns: 1fr; }
+            .map-box { height: 350px; }
+            header { flex-direction: column; gap: 15px; padding: 15px; }
+            nav ul { gap: 15px; }
+            .header-contact { display: none; } /* Ocultar email en header movil para ahorrar espacio */
+        }
+    </style>
+</head>
+<body>
+
+    <a href="https://wa.me/50687784840?text=Hola,%20vi%20su%20página%20web%20y%20tengo%20una%20consulta" class="floating-wpp" target="_blank" title="Chatear por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <header>
+        <div class="logo">
+            <i class="fas fa-cogs"></i>
+            <div>J. MONESTEL<br><span style="font-size: 0.6em; letter-spacing: 2px; color:#ccc; text-transform:uppercase;">Maquinaria Agrícola</span></div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#catalogo">Catálogo</a></li>
+                <li><a href="#taller">Servicios</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+        <div class="header-contact">
+            <a href="mailto:monestaller@gmail.com" class="email-link"><i class="fas fa-envelope"></i> monestaller@gmail.com</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="badges">
+            <span class="badge"><i class="fas fa-check"></i> STIHL & HONDA</span>
+            <span class="badge"><i class="fas fa-wrench"></i> Reparación Express</span>
+            <span class="badge"><i class="fas fa-truck"></i> Guatuso y Alrededores</span>
+        </div>
+        <h1>Potencia para la Tierra</h1>
+        <p>Expertos en venta y reparación de maquinaria agrícola pequeña. Desde motosierras para teca hasta bombas para riego. Si tiene motor, nosotros lo arreglamos.</p>
+        <div style="margin-top: 20px;">
+            <a href="#catalogo" class="btn">Ver Equipos</a>
+            <a href="#contacto" class="btn btn-outline" style="margin-left: 10px;">Agendar Taller</a>
+        </div>
+    </section>
+
+    <section id="catalogo" class="catalog-section">
+        <h2 class="section-title">Nuestra Maquinaria</h2>
+        
+        <div class="filters">
+            <button class="filter-btn active" onclick="filterSelection('all')">Todo</button>
+            <button class="filter-btn" onclick="filterSelection('motosierra')">Motosierras</button>
+            <button class="filter-btn" onclick="filterSelection('guadana')">Guadañas</button>
+            <button class="filter-btn" onclick="filterSelection('fumigacion')">Fumigación</button>
+            <button class="filter-btn" onclick="filterSelection('motores')">Bombas / Motores</button>
+        </div>
+
+        <div class="product-grid">
+            
+            <div class="card filter-item motosierra">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="flip-hint"><i class="fas fa-sync-alt"></i></div>
+                        <div class="img-container">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/2/23/Stihl_070_Kettens%C3%A4ge.jpg" alt="Motosierra Forestal Profesional">
+                        </div>
+                        <div class="info-front">
+                            <span class="cat-tag">Forestal / Tala Pesada</span>
+                            <h3 class="prod-title">Motosierra Pro 72.2cc (Tipo MS 382)</h3>
+                            <p style="font-size: 0.9rem; color: #666;">La leyenda para maderas duras. Robusta, potente y confiable para trabajo diario.</p>
+                            <div class="price-tag">₡385,000 <small style="font-size: 0.8rem; color: #999; font-weight:400;">(Estimado)</small></div>
+                            <div class="tap-msg"><i class="fas fa-mouse-pointer"></i> Clic para ver ficha técnica</div>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <h4>Especificaciones</h4>
+                        <ul class="specs-list">
+                            <li><span>Cilindrada:</span> <strong>72.2 cm³</strong></li>
+                            <li><span>Potencia:</span> <strong>3.9 kW / 5.3 CV</strong></li>
+                            <li><span>Peso:</span> <strong>6.2 kg</strong></li>
+                            <li><span>Espada:</span> <strong>20" - 25" Duromatic</strong></li>
+                            <li><span>Uso:</span> <strong>Profesional / Intensivo</strong></li>
+                        </ul>
+                        <p style="font-size: 0.9rem; margin-bottom: 1rem;">Ideal para tala de Teca y Melina. Contamos con stock completo de repuestos y cadenas.</p>
+                        <span class="stock-status"><i class="fas fa-check-circle"></i> Disponible</span>
+                        <a href="https://wa.me/50687784840?text=Me interesa la Motosierra MS382" class="btn" style="width: 100%; text-align: center; margin-top: auto;">Cotizar por WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card filter-item guadana">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="flip-hint"><i class="fas fa-sync-alt"></i></div>
+                        <div class="img-container">
+                            <img src="https://images.unsplash.com/photo-1622369466650-689d06692224?q=80&w=1965&auto=format&fit=crop" alt="Motoguadaña Desbrozadora">
+                        </div>
+                        <div class="info-front">
+                            <span class="cat-tag">Limpieza / Charral</span>
+                            <h3 class="prod-title">Motoguadaña Profesional (Tipo FS 450)</h3>
+                            <p style="font-size: 0.9rem; color: #666;">Para el trabajo rudo bajo el sol. Eje reforzado y sistema antivibración.</p>
+                            <div class="price-tag">₡395,000 <small style="font-size: 0.8rem; color: #999; font-weight:400;">(Aprox)</small></div>
+                            <div class="tap-msg"><i class="fas fa-mouse-pointer"></i> Clic para ver ficha técnica</div>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <h4>Detalles Técnicos</h4>
+                        <ul class="specs-list">
+                            <li><span>Motor:</span> <strong>2 Tiempos, 44.3 cm³</strong></li>
+                            <li><span>Potencia:</span> <strong>2.9 HP</strong></li>
+                            <li><span>Tanque:</span> <strong>0.67 Litros</strong></li>
+                            <li><span>Accesorios:</span> <strong>Cuchilla 3 puntas + Arnés</strong></li>
+                            <li><span>Manillar:</span> <strong>Ergonómico Ajustable</strong></li>
+                        </ul>
+                        <p style="font-size: 0.9rem;">El caballo de batalla en Costa Rica. Soporta jornadas completas de chapea.</p>
+                        <span class="stock-status"><i class="fas fa-check-circle"></i> Repuestos en Stock</span>
+                        <a href="https://wa.me/50687784840?text=Informacion Motoguadaña 450" class="btn" style="width: 100%; text-align: center; margin-top: auto;">Consultar Precio</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card filter-item fumigacion">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="flip-hint"><i class="fas fa-sync-alt"></i></div>
+                        <div class="img-container">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Mistblower_sprayer.jpg" alt="Atomizadora de Espalda">
+                        </div>
+                        <div class="info-front">
+                            <span class="cat-tag">Fumigación Agrícola</span>
+                            <h3 class="prod-title">Atomizadora de Motor 14L (SR 420)</h3>
+                            <p style="font-size: 0.9rem; color: #666;">Alcance y potencia. Perfecta para cultivos de piña, cacao y frutales.</p>
+                            <div class="price-tag">₡310,000</div>
+                            <div class="tap-msg"><i class="fas fa-mouse-pointer"></i> Clic para ver ficha técnica</div>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <h4>Ficha Técnica</h4>
+                        <ul class="specs-list">
+                            <li><span>Alcance Horiz.:</span> <strong>12 metros</strong></li>
+                            <li><span>Caudal Máx:</span> <strong>1300 m³/h</strong></li>
+                            <li><span>Tanque Químico:</span> <strong>14 Litros</strong></li>
+                            <li><span>Versatilidad:</span> <strong>Líquido / Polvo</strong></li>
+                            <li><span>Peso:</span> <strong>11 kg (vacío)</strong></li>
+                        </ul>
+                        <p style="font-size: 0.9rem;">Genere una nube fina que ahorra producto y cubre mejor la planta.</p>
+                        <span class="stock-status"><i class="fas fa-check-circle"></i> Disponible</span>
+                        <a href="https://wa.me/50687784840?text=Precio Atomizadora SR420" class="btn" style="width: 100%; text-align: center; margin-top: auto;">Ver Video Demo</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card filter-item motores">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="flip-hint"><i class="fas fa-sync-alt"></i></div>
+                        <div class="img-container">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Honda_water_pump_WB20XT_in_Japan.jpg" alt="Motobomba Honda">
+                        </div>
+                        <div class="info-front">
+                            <span class="cat-tag">Riego / Drenaje</span>
+                            <h3 class="prod-title">Motobomba 3" Honda (WB30)</h3>
+                            <p style="font-size: 0.9rem; color: #666;">Caudal masivo. Motor GX160 de arranque fácil a la primera.</p>
+                            <div class="price-tag">₡275,000</div>
+                            <div class="tap-msg"><i class="fas fa-mouse-pointer"></i> Clic para ver ficha técnica</div>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <h4>Ficha Técnica</h4>
+                        <ul class="specs-list">
+                            <li><span>Succión/Descarga:</span> <strong>3" (80mm)</strong></li>
+                            <li><span>Caudal Máx:</span> <strong>1100 L/min</strong></li>
+                            <li><span>Altura Total:</span> <strong>28 metros</strong></li>
+                            <li><span>Motor:</span> <strong>Honda GX160 (5.5 HP)</strong></li>
+                            <li><span>Alerta Aceite:</span> <strong>Sí (Oil Alert)</strong></li>
+                        </ul>
+                        <p style="font-size: 0.9rem;">Impulsor de hierro fundido. Ideal para sacar agua del río o llenar tanquetas rápido.</p>
+                        <span class="stock-status"><i class="fas fa-check-circle"></i> Bajo Pedido</span>
+                        <a href="https://wa.me/50687784840?text=Cotizar Bomba Honda 3 pulgadas" class="btn" style="width: 100%; text-align: center; margin-top: auto;">Cotizar</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card filter-item guadana">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="flip-hint"><i class="fas fa-sync-alt"></i></div>
+                        <div class="img-container">
+                            <img src="https://images.unsplash.com/photo-1592424911762-b52b27072a2c?q=80&w=2070&auto=format&fit=crop" alt="Cortadora de Césped">
+                        </div>
+                        <div class="info-front">
+                            <span class="cat-tag">Jardinería</span>
+                            <h3 class="prod-title">Cortadora 21" Rueda Alta</h3>
+                            <p style="font-size: 0.9rem; color: #666;">Motor Briggs & Stratton. 3 en 1: Bolsa, descarga y mulch.</p>
+                            <div class="price-tag">₡280,000</div>
+                            <div class="tap-msg"><i class="fas fa-mouse-pointer"></i> Clic para ver ficha técnica</div>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <h4>Detalles Técnicos</h4>
+                        <ul class="specs-list">
+                            <li><span>Motor:</span> <strong>6.75 ft-lbs torque</strong></li>
+                            <li><span>Ancho Corte:</span> <strong>21 pulgadas</strong></li>
+                            <li><span>Tracción:</span> <strong>Trasera (Ruedas altas)</strong></li>
+                            <li><span>Ajuste Altura:</span> <strong>6 posiciones</strong></li>
+                        </ul>
+                        <p style="font-size: 0.9rem;">Las ruedas traseras altas facilitan el movimiento en terrenos irregulares de jardín.</p>
+                        <span class="stock-status"><i class="fas fa-check-circle"></i> Disponible</span>
+                        <a href="https://wa.me/50687784840?text=Interesado en cortadora de zacate" class="btn" style="width: 100%; text-align: center; margin-top: auto;">Ver Detalles</a>
+                    </div>
+                </div>
+            </div>
+
+             <div class="card filter-item motores">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="flip-hint"><i class="fas fa-sync-alt"></i></div>
+                        <div class="img-container">
+                             <img src="https://images.unsplash.com/photo-1574360789053-f72cb160c822?q=80&w=2070&auto=format&fit=crop" alt="Generador Electrico">
+                        </div>
+                        <div class="info-front">
+                            <span class="cat-tag">Energía / Emergencia</span>
+                            <h3 class="prod-title">Generador 6500W (Arranque Eléctrico)</h3>
+                            <p style="font-size: 0.9rem; color: #666;">Suficiente para casa entera, lechería pequeña o soldar.</p>
+                            <div class="price-tag">₡550,000</div>
+                            <div class="tap-msg"><i class="fas fa-mouse-pointer"></i> Clic para ver ficha técnica</div>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <h4>Ficha Técnica</h4>
+                        <ul class="specs-list">
+                            <li><span>Potencia Máx:</span> <strong>6.5 kW</strong></li>
+                            <li><span>Potencia Cont:</span> <strong>5.5 kW</strong></li>
+                            <li><span>Salida:</span> <strong>120V / 240V</strong></li>
+                            <li><span>Tanque:</span> <strong>25 Litros (10hrs)</strong></li>
+                            <li><span>Encendido:</span> <strong>Llave / Yoyo</strong></li>
+                        </ul>
+                        <p style="font-size: 0.9rem;">Incluye regulador AVR para proteger televisores y refrigeradoras. Kit de ruedas incluido.</p>
+                        <span class="stock-status"><i class="fas fa-check-circle"></i> Pocas Unidades</span>
+                        <a href="https://wa.me/50687784840?text=Consulta Generador Electrico" class="btn" style="width: 100%; text-align: center; margin-top: auto;">Consultar Envío</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section style="padding: 3rem 5%; background: white; text-align: center;">
+        <h3 style="margin-bottom: 2rem; color: #777;">Trabajamos con las Mejores Marcas</h3>
+        <div style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; opacity: 0.7; align-items: center;">
+            <i class="fas fa-tools" style="font-size: 2rem;"></i>
+            <h2 style="font-weight: 900; font-style: italic; color: #F77F00;">STIHL</h2>
+            <h2 style="font-weight: 900; color: #16365C;">Husqvarna</h2>
+            <h2 style="font-weight: 900; color: #CC0000; font-family: sans-serif;">HONDA</h2>
+            <h2 style="font-weight: 900; color: #D62828;">Shindaiwa</h2>
+        </div>
+    </section>
+
+    <section id="contacto" class="contact-section">
+        <div class="contact-info">
+            <h2 style="margin-bottom: 10px; color: var(--brand-orange);">Contáctenos</h2>
+            <p style="margin-bottom: 40px; color: #ccc;">Traiga su equipo para diagnóstico o escríbanos para cotizar repuestos.</p>
+            
+            <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <div>
+                    <h5>UBICACIÓN</h5>
+                    <p>Del Puente del Río Frío, 2 km oeste camino a Katira, San Rafael de Guatuso.</p>
+                    <a href="https://waze.com/ul?ll=10.709,-84.825&navigate=yes" target="_blank" style="color: var(--brand-orange); font-size: 0.9rem; margin-top: 5px; display: inline-block;"><i class="fab fa-waze"></i> Ir con Waze</a>
+                </div>
+            </div>
+
+            <div class="contact-item">
+                <i class="fas fa-phone"></i>
+                <div>
+                    <h5>TELÉFONO / WHATSAPP</h5>
+                    <a href="tel:+50687784840">8778-4840</a>
+                </div>
+            </div>
+
+            <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <div>
+                    <h5>CORREO ELECTRÓNICO</h5>
+                    <a href="mailto:monestaller@gmail.com">monestaller@gmail.com</a>
+                </div>
+            </div>
+
+            <div class="contact-item">
+                <i class="far fa-clock"></i>
+                <div>
+                    <h5>HORARIO</h5>
+                    <p>Lunes - Viernes: 7:00 AM - 5:00 PM</p>
+                    <p style="font-size: 0.9rem; font-weight: normal; color: #aaa;">Sábados: 7:00 AM - 12:00 MD</p>
+                </div>
+            </div>
+        </div>
+        <div class="map-box">
+             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31405.57861596752!2d-84.8436040856018!3d10.672404099999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa00c4314144365%3A0x7d25e01b3390c50!2sProvincia%20de%20Alajuela%2C%20San%20Rafael!5e0!3m2!1ses-419!2scr!4v1689278456123!5m2!1ses-419!2scr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </section>
+
+    <footer style="background: #111; color: #555; padding: 30px 5%; text-align: center; font-size: 0.8rem; border-top: 1px solid #222;">
+        <p>© <span id="year"></span> Taller J. Monestel. Guatuso, Alajuela.</p>
+        <p style="margin-top: 5px;">Correo: <a href="mailto:monestaller@gmail.com" style="color: #555;">monestaller@gmail.com</a></p>
+    </footer>
+
+    <script>
+        // Actualizar año automáticamente
+        document.getElementById("year").innerHTML = new Date().getFullYear();
+
+        // Script de filtrado
+        function filterSelection(c) {
+            var x, i;
+            x = document.getElementsByClassName("filter-item");
+            var btns = document.getElementsByClassName("filter-btn");
+            
+            // Gestión de botones activos
+            for (let btn of btns) {
+                btn.classList.remove("active");
+                if (btn.getAttribute("onclick").includes(c)) btn.classList.add("active");
+            }
+
+            if (c == "all") c = "";
+            for (i = 0; i < x.length; i++) {
+                w3RemoveClass(x[i], "show");
+                if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+            }
+        }
+
+        // Estilos dinámicos para animación de filtrado
+        var style = document.createElement('style');
+        style.innerHTML = `
+            .filter-item { display: none; } 
+            .filter-item.show { display: block; animation: fadeIn 0.5s ease-out; }
+            @keyframes fadeIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
+        `;
+        document.head.appendChild(style);
+
+        function w3AddClass(element, name) {
+            var i, arr1, arr2;
+            arr1 = element.className.split(" ");
+            arr2 = name.split(" ");
+            for (i = 0; i < arr2.length; i++) {
+                if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
+            }
+        }
+
+        function w3RemoveClass(element, name) {
+            var i, arr1, arr2;
+            arr1 = element.className.split(" ");
+            arr2 = name.split(" ");
+            for (i = 0; i < arr2.length; i++) {
+                while (arr1.indexOf(arr2[i]) > -1) {
+                    arr1.splice(arr1.indexOf(arr2[i]), 1);     
+                }
+            }
+            element.className = arr1.join(" ");
+        }
+
+        // Inicializar mostrando todo
+        filterSelection("all");
+    </script>
+
+</body>
+</html>
